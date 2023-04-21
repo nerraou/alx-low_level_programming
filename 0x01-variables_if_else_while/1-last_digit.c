@@ -14,14 +14,14 @@ void last_digit(int n)
 	var = n % 10;
 	if (var > 5)
 	{
-		printf("last digit of %d is %d and is greater than 5\n", n, var);
+		printf("Last digit of %d is %d and is greater than 5\n", n, var);
 	}
 	else if (var == 0)
 	{
-		printf("last digit of %d is %d and is 0\n", n, var);
+		printf("Last digit of %d is %d and is 0\n", n, var);
 	}
 	else if (var < 6)
-		printf("last digit of %d is %d and is less than 6 and not 0\n", n, var);
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, var);
 }
 /**
  * main - Entry point
