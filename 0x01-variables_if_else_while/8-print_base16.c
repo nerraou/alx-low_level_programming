@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * print_alphabt - prints alphabet from start to end
+ * print_alphabet - prints alphabet from start to end
  * @start: start character
  * @end: end character
  */
