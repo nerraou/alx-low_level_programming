@@ -29,6 +29,7 @@ void jack_bauer(void)
 			print_two_digits(hour);
 			_putchar(':');
 			print_two_digits(minute);
+			_putchar('\n');
 		}
 	}
 }
