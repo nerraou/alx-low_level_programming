@@ -28,9 +28,9 @@ int _issign(int c)
  */
 int _atoi(char *s)
 {
-	unsigned int i;
+	int i;
 	int signe;
-	int num;
+	unsigned int num;
 
 	i = 0;
 	signe = 1;
