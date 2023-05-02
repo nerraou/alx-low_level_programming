@@ -23,10 +23,10 @@ int _issign(int c)
 
 /**
  * _atoi - copy string
- *@str: arg1
+ *@s: arg1
  *Return: number
  */
-int _atoi(const char *str)
+int _atoi(char *s)
 {
 	int i;
 	int signe;
@@ -35,18 +35,18 @@ int _atoi(const char *str)
 	i = 0;
 	signe = 1;
 	num = 0;
-	while (str[i] && !_isdigit(str[i]))
+	while (s[i] && !_isdigit(s[i]))
 	{
-		if (_issign(str[i]))
+		if (_issign(s[i]))
 		{
-			if (str[i] == '-')
+			if (s[i] == '-')
 				signe *= -1;
 		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s[i] >= '0' && s[i] <= '9')
 	{
-		num = num * 10 + str[i] - '0';
+		num = num * 10 + s[i] - '0';
 		i++;
 	}
 	return (num * signe);
