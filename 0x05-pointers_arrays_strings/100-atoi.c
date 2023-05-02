@@ -1,30 +1,52 @@
 #include "main.h"
+
 /**
- * _atoi - get number
- *@s: arg1
+ * _isdigit - is digit
+ *@c: char
+ *Return: 1 if c is digit, 0 if not
+ */
+int _isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+/**
+ * _issign - is figit
+ *@c: char
+ *Return: 1 if c is sign, 0 if not
+ */
+int _issign(int c)
+{
+	return (c == '-' || c == '+');
+}
+
+
+/**
+ * _atoi - copy string
+ *@str: arg1
  *Return: number
  */
-int _atoi(char *s)
+int _atoi(const char *str)
 {
-	int	i;
-	int	signe;
-	int	num;
+	int i;
+	int signe;
+	int num;
 
 	i = 0;
 	signe = 1;
 	num = 0;
-	while ((s[i] >= 7 && s[i] <= 13) || s[i] == ' ')
-		i++;
-	while (s[i] == '+')
-		i++;
-	while (s[i] == '-')
+	while (str[i] && !_isdigit(str[i]))
 	{
+		if (_issign(str[i]))
+		{
+			if (str[i] == '-')
+				signe *= -1;
+		}
 		i++;
-		signe *= -1;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num = num * 10 + s[i] - '0';
+		num = num * 10 + str[i] - '0';
 		i++;
 	}
 	return (num * signe);
