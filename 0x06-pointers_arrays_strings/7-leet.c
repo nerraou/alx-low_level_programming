@@ -1,33 +1,19 @@
 #include "main.h"
 
 /**
- * _toupper - make c to upper
- *@c: char
- *Return: c to upper
- */
-int _toupper(int c)
-{
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	return (c);
-}
-
-/**
  * letter_to_leet - map letter to leet
  *@c: arg0
- *Return: mapped c
+ *Return: map letter to leet
  */
 char letter_to_leet(char c)
 {
-	char upper_c;
-	char charset[] = "AEOTL";
-	char leet_charset[] = "43071";
+	char charset[] = "AEOTLaeotl";
+	char leet_charset[] = "4307143071";
 	int i;
 
-	upper_c = _toupper(c);
 	for (i = 0; charset[i] != '\0'; i++)
 	{
-		if (charset[i] == upper_c)
+		if (charset[i] == c)
 			return (leet_charset[i]);
 	}
 	return (c);
