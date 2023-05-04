@@ -1,6 +1,18 @@
 #include "main.h"
 
 /**
+ * _toupper - make c to upper
+ *@c: char
+ *Return: c to upper
+ */
+int _toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
+}
+
+/**
  * letter_to_leet - map letter to leet
  *@c: arg0
  *Return: mapped c
