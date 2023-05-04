@@ -9,7 +9,7 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (i < n && src[i])
