@@ -42,6 +42,7 @@ char *cap_string(char *str)
 	int i;
 
 	i = 0;
+	str[0] = _toupper(str[0]);
 	while (str[i] != '\0')
 	{
 		if (_check(str[i]) && str[i + 1] && !_check(str[i + 1]))
