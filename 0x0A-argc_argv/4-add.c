@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * main - mult of two args
+ * main - add two args
  * @argc: arguments count
  * @argv: arguments value
- * Return: 0 or 1
+ * Return: Always 0 (Success)
  */
 int main(int argc, char const *argv[])
 {
 	if (argc == 3)
 	{
-		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+		printf("%d\n", atoi(argv[1]) + atoi(argv[2]));
 		return (0);
 	}
 	else
