@@ -1,6 +1,22 @@
 #include "main.h"
 
 /**
+ * free_2d - free 2d array
+ * @array: 2d array
+ * @height: height
+ */
+void free_2d(int **array, int height)
+{
+	int i;
+
+	for (i = 0; i < height; i++)
+	{
+		free(array[i]);
+	}
+	free(array);
+}
+
+/**
  * alloc_grid - alloc 2d array
  * @width: width
  * @height: height
@@ -21,7 +37,10 @@ int **alloc_grid(int width, int height)
 	{
 		grid[i] = (int *)malloc(sizeof(int) * width);
 		if (!grid[i])
+		{
+			free_2d(grid, i);
 			return (NULL);
+		}
 		for (j = 0; j < width; j++)
 		{
 			grid[i][j] = 0;
