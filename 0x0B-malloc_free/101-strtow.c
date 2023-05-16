@@ -104,6 +104,8 @@ char **strtow(char *str)
 	int start;
 	int length;
 
+	if (!str || str[0] == '\0')
+		return (NULL);
 	words = word_count(str, ' ');
 	i = 0;
 	start = 0;
