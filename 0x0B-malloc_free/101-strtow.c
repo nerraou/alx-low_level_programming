@@ -107,6 +107,8 @@ char **strtow(char *str)
 	if (!str || str[0] == '\0')
 		return (NULL);
 	words = word_count(str, ' ');
+	if (words == 0)
+		return (NULL);
 	i = 0;
 	start = 0;
 	array = (char **)malloc(sizeof(char *) * (words + 1));
