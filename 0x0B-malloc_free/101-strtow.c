@@ -76,11 +76,11 @@ int word_count(char *s, char c)
 }
 
 /**
- * free_grid - free 2d array
+ * free_2d - free 2d array
  * @grid: 2d array
  * @height: height
  */
-void free_grid(char **grid, int height)
+void free_2d(char **grid, int height)
 {
 	int i;
 
@@ -120,7 +120,7 @@ char **strtow(char *str)
 		array[i] = _substr(str, start, length);
 		if (!array[i])
 		{
-			free_grid(array, i);
+			free_2d(array, i);
 			return (NULL);
 		}
 		start += length;
