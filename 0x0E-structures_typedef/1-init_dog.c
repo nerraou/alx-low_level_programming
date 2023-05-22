@@ -54,6 +54,6 @@ char *_strdup(char *str)
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	d->age = age;
-	d->name = _strdup(name);
-	d->owner = _strdup(owner);
+	d->name = name;
+	d->owner = owner;
 }
