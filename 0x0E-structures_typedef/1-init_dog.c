@@ -56,11 +56,15 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 	d->age = age;
 	d->name = _strdup(name);
 	if (d->name == NULL)
-		exit(98);
+	{
+		d->owner = NULL;
+		return;
+	}
 	d->owner = _strdup(owner);
 	if (d->owner == NULL)
 	{
 		free(d->name);
-		exit(98);
+		d->name = NULL;
+		return;
 	}
 }
