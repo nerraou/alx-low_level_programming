@@ -15,7 +15,7 @@ void print_c(va_list list)
  */
 void print_i(va_list list)
 {
-	printf("%i", va_arg(list, int));
+	printf("%d", va_arg(list, int));
 }
 
 /**
