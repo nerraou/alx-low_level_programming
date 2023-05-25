@@ -59,7 +59,7 @@ void print_all(const char *const format, ...)
 
 	va_start(args, format);
 	i = 0;
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (actions[j].specifier && actions[j].specifier != format[i])
