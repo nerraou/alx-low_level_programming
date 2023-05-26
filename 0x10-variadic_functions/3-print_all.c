@@ -6,7 +6,7 @@
  */
 void print_c(va_list list)
 {
-	printf("%c", (unsigned char)va_arg(list, int));
+	printf("%c", (char)va_arg(list, int));
 }
 
 /**
@@ -55,10 +55,12 @@ void print_all(const char *const format, ...)
 		{'\0', NULL}};
 	int i;
 	int j;
+	int print_comma;
 	va_list args;
 
 	va_start(args, format);
 	i = 0;
+	print_comma = 0;
 	while (format && format[i])
 	{
 		j = 0;
@@ -70,8 +72,9 @@ void print_all(const char *const format, ...)
 			break;
 
 		default:
-			if (i != 0)
+			if (print_comma)
 				printf(", ");
+			print_comma = 1;
 			actions[j].f(args);
 			break;
 		}
