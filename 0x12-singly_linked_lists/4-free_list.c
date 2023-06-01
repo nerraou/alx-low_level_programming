@@ -6,19 +6,16 @@
  */
 void free_list(list_t *head)
 {
-	list_t	*to_free;
-	list_t	*it;
+	list_t  *to_free;
 
 	if (head == NULL)
-		return;
+			return;
 
-	it = head;
-	while (it != NULL)
+	while (head != NULL)
 	{
-		to_free = it;
-		it = it->next;
-		free(to_free->str);
-		free(to_free);
+			to_free = head;
+			head = head->next;
+			free(to_free->str);
+			free(to_free);
 	}
-	free(head);
 }
