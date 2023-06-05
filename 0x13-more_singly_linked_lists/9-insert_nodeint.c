@@ -16,6 +16,23 @@ listint_t *create_node(int n)
 	return (node);
 }
 
+/**
+ * add_front - add node to front
+ *@head: linked list head
+ *@n: value
+ *Return: added element
+ */
+listint_t *add_front(listint_t **head, int n)
+{
+	listint_t *node;
+
+	node = create_node(n);
+	if (!node)
+		return (NULL);
+	node->next = *head;
+	*head = node;
+	return (node);
+}
 
 /**
  * insert_nodeint_at_index - insert nodeint at index
@@ -33,9 +50,11 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	if (!head)
 		return (NULL);
-	i = 0;
-	it = *head;
-	prev = NULL;
+	if (idx == 0)
+		return (add_front(head, n));
+	i = 1;
+	it = (*head)->next;
+	prev = *head;
 	while (it)
 	{
 		if (i == idx)
@@ -43,16 +62,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			elem = create_node(n);
 			if (!elem)
 				return (NULL);
-			if (prev == NULL)
-			{
-				elem->next = *head;
-				*head = elem;
-			}
-			else
-			{
-				prev->next = elem;
-				elem->next = it;
-			}
+			prev->next = elem;
+			elem->next = it;
 			return (elem);
 		}
 		i++;
