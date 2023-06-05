@@ -12,10 +12,7 @@ size_t print_listint(const listint_t *h)
 	size = 0;
 	while (h != NULL)
 	{
-		if (h->str == NULL)
-			printf("[0] (nil)\n");
-		else
-			printf("[%u] %s\n", h->len, h->str);
+		printf("%d\n", h->n);
 		h = h->next;
 		size++;
 	}
