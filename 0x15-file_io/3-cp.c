@@ -1,4 +1,9 @@
-#include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#define S_RW_RW_R S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH
 
 /**
  * error_close - close fds
