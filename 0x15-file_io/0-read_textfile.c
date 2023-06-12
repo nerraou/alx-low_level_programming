@@ -32,8 +32,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			return (count);
 		if (read_bytes < 0)
 			return (0);
-		size = write(STDOUT_FILENO, str, to_read);
-		if (size <= 0 || size < (ssize_t)to_read)
+		size = write(STDOUT_FILENO, str, read_bytes);
+		if (size <= 0 || size < read_bytes)
 			return (0);
 		count += read_bytes;
 	}
