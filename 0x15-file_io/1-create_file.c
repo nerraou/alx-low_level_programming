@@ -1,6 +1,25 @@
 #include "main.h"
 
 /**
+ * _strlen - string length
+ *@s: arg
+ *Return: string length
+ */
+
+int _strlen(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
+}
+
+/**
  * create_file - create file
  * @filename: filename
  * @text_content: text content
@@ -17,7 +36,7 @@ int create_file(const char *filename, char *text_content)
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
-	size = write(fd, text_content, strlen(text_content));
+	size = write(fd, text_content, _strlen(text_content));
 	close(fd);
 	if (size <= 0)
 		return (-1);
