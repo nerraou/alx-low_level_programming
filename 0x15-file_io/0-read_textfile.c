@@ -29,13 +29,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			to_read = letters - count;
 		read_bytes = read(fd, str, to_read);
 		if (read_bytes == 0)
+		{
+			close(fd);
 			return (count);
+		}
 		if (read_bytes < 0)
+		{
+			close(fd);
 			return (0);
+		}
 		size = write(STDOUT_FILENO, str, read_bytes);
 		if (size <= 0 || size < read_bytes)
+		{
+			close(fd);
 			return (0);
+		}
 		count += read_bytes;
 	}
+	close(fd);
 	return (count);
 }
