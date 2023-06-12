@@ -63,7 +63,7 @@ void cp(int fd_from, int fd_to, const char *from, const char *to)
 		if (written_bytes != read_bytes)
 		{
 			error_close(fd_from, fd_to);
-			error_exit("Error: Can't write to file", to, 99);
+			error_exit("Error: Can't write to", to, 99);
 		}
 	}
 }
@@ -94,7 +94,7 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 	{
 		error_close(fd_from, fd_to);
-		error_exit("Error: Can't write to file", av[2], 99);
+		error_exit("Error: Can't write to", av[2], 99);
 	}
 	cp(fd_from, fd_to, av[1], av[2]);
 	error_close(fd_from, fd_to);
