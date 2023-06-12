@@ -14,12 +14,12 @@ void error_close(int fd1, int fd2)
 {
 	if (fd1 >= 0 && close(fd1) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(100);
 	}
 	if (fd2 >= 0 && close(fd2) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(100);
 	}
 }
@@ -32,7 +32,7 @@ void error_close(int fd1, int fd2)
  */
 void error_exit(const char *message, const char *filename, int exit_status)
 {
-	dprintf(2, "%s %s\n", message, filename);
+	dprintf(STDERR_FILENO, "%s %s\n", message, filename);
 	exit(exit_status);
 }
 
@@ -81,7 +81,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	fd_from = open(av[1], O_RDONLY);
