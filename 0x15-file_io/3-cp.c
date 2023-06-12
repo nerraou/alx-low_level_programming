@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * error_close - close fds
  * @fd1: file descriptor
