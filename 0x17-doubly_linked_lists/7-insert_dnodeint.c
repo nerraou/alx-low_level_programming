@@ -1,27 +1,6 @@
 #include "lists.h"
 
 /**
- * get_dnodeint_at_index - get node at index
- * @head: list head
- * @index: index
- * Return: node or NULL
- */
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
-{
-	unsigned int i;
-
-	i = 0;
-	while (head != NULL && i < index)
-	{
-		head = head->next;
-		i++;
-	}
-	if (i != index)
-		return (NULL);
-	return (head);
-}
-
-/**
  * insert_dnodeint_at_index - insert node at index
  * @h: list head
  * @idx: index
@@ -31,22 +10,40 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *node;
-	dlistint_t *node_at_idx;
+	dlistint_t *cur;
+	dlistint_t *prev;
+	unsigned int i;
 
 	if (!h)
 		return (NULL);
 	if (idx == 0)
 		return (add_dnodeint(h, n));
-	node_at_idx = get_dnodeint_at_index(*h, idx);
-	if (node_at_idx == NULL)
+	prev = NULL;
+	i = 0;
+	cur = *h;
+	while (cur != NULL && i < idx)
+	{
+		prev = cur;
+		cur = cur->next;
+		i++;
+	}
+	if (i != idx)
 		return (NULL);
 	node = malloc(sizeof(dlistint_t));
 	if (node == NULL)
 		return (NULL);
 	node->n = n;
-	node->next = node_at_idx;
-	node->prev = node_at_idx->prev;
-	node_at_idx->prev->next = node;
-	node_at_idx->prev = node;
+	if (cur == NULL)
+	{
+		prev->next = node;
+		node->prev = prev;
+	}
+	else
+	{
+		node->next = cur;
+		node->prev = cur->prev;
+		cur->prev->next = node;
+		cur->prev = node;
+	}
 	return (node);
 }
