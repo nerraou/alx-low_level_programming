@@ -16,12 +16,13 @@ int add_node(hash_node_t **head, const char *value, const char *key)
 	if (!node)
 		return (0);
 	node->key = strdup(key);
-	if (node->key != NULL)
+	if (node->key == NULL)
 	{
 		free(node);
 		return (0);
 	}
 	node->value = strdup(value);
+	if (node->value == NULL)
 	{
 		free(node->key);
 		free(node);
