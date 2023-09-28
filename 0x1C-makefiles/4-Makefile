@@ -3,7 +3,6 @@ SRC= main.c school.c
 OBJ =  $(SRC:.c=.o)
 CC = gcc
 RM = /bin/rm -f
-CFLAGS = 
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: $(OBJ)
