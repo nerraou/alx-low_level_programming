@@ -1,5 +1,4 @@
 #include "search_algos.h"
-#include <stdlib.h>
 
 /**
  * print_array - print array
@@ -35,18 +34,15 @@ int binary_search(int *array, size_t size, int value)
 	int end;
 
 	if (array == NULL)
-	{
 		return (-1);
-	}
-	begin = array[0];
-	end = array[size - 1];
+	begin = 0;
+	end = size - 1;
 	while (begin <= end)
 	{
 		print_array(array, begin, end);
 		mid = begin + (end - begin) / 2;
 		if (value == array[mid])
 		{
-			printf("Value checked array[%d] = [%d]\n", mid, array[mid]);
 			return (mid);
 		}
 
